@@ -42,6 +42,10 @@ export default class ListController {
     listService.delete(id)
   }
 
+  titleColor(id) {
+    listService.titleColor(id)
+  }
+
   //TODO: Your app will need the ability to create, and delete lists
 }
 

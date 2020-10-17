@@ -28,6 +28,16 @@ class TaskService {
       'error'
     )
   }
+
+  crossOff(id) {
+    let taskItem = document.getElementById(id)
+    if (taskItem.style.textDecoration == 'line-through') {
+      taskItem.style.textDecoration = 'none'
+    } else {
+      taskItem.style.textDecoration = 'line-through'
+    }
+  }
+
 }
 
 export const taskService = new TaskService()

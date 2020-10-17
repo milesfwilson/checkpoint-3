@@ -22,6 +22,11 @@ export default class TaskController {
   delete(id) {
     taskService.delete(id)
   }
+
+  crossOff(id) {
+    taskService.crossOff(id)
+  }
+
 }
 
 export const taskController = new TaskController()

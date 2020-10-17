@@ -26,14 +26,54 @@ class ListService {
     )
   }
   delete(id) {
-    ProxyState.lists = ProxyState.lists.filter(l => l.id != id)
 
     // @ts-ignore
-    Swal.fire(
-      'Deleted!',
-      ' ',
-      'error'
-    )
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        ProxyState.lists = ProxyState.lists.filter(l => l.id != id)
+        // @ts-ignore
+
+        Swal.fire(
+          'Deleted!',
+          'Your list has been deleted.',
+          'success'
+        )
+      }
+    })
+  }
+
+  titleColor(id) {
+    let title = document.getElementById(id)
+
+    if (title.classList.contains('bg-primary')) {
+      title.classList.remove('bg-primary')
+      title.classList.add('bg-secondary')
+    } else if (title.classList.contains('bg-dark')) {
+      title.classList.remove('bg-dark')
+      title.classList.add('bg-primary')
+    } else if (title.classList.contains('bg-secondary')) {
+      title.classList.remove('bg-secondary')
+      title.classList.add('bg-warning')
+    } else if (title.classList.contains('bg-warning')) {
+      title.classList.remove('bg-warning')
+      title.classList.add('bg-danger')
+
+    } else if (title.classList.contains('bg-danger')) {
+      title.classList.remove('bg-danger')
+      title.classList.add('bg-dark')
+
+    }
+
+
+
   }
 
 }

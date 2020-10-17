@@ -13,7 +13,7 @@ export default class Task {
   <div class="row m-1">
   <div class="1"></div>
   <div class="col">
-  <p>${this.contents} </p>
+  <p id='${this.id}' onclick="app.taskController.crossOff('${this.id}')">${this.contents} </p>
   </div>
   <div class="col-1">
   <button class="text-danger close" onclick="app.taskController.delete('${this.id}')">&times;</button>
