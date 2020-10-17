@@ -10,10 +10,10 @@ export default class Task {
 
   get Template() {
     return /*html*/`
-  <div class="row">
-  <div class="col-1"></div>
-  <div class="col-10">
-  ${this.contents} 
+  <div class="row m-1">
+  <div class="1"></div>
+  <div class="col">
+  <p>${this.contents} </p>
   </div>
   <div class="col-1">
   <button class="text-danger close" onclick="app.taskController.delete('${this.id}')">&times;</button>

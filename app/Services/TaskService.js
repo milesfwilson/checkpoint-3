@@ -12,10 +12,21 @@ class TaskService {
     let tasks = ProxyState.tasks
     tasks.push(new Task(taskData))
     ProxyState.tasks = tasks
-
+    // @ts-ignore
+    Swal.fire(
+      'Task Added!',
+      ' ',
+      'success'
+    )
   }
   delete(id) {
     ProxyState.tasks = ProxyState.tasks.filter(t => t.id != id)
+    // @ts-ignore
+    Swal.fire(
+      'Deleted!',
+      ' ',
+      'error'
+    )
   }
 }
 

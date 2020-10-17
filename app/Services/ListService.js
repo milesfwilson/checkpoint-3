@@ -18,11 +18,22 @@ class ListService {
     let lists = ProxyState.lists
     lists.push(new List(listData))
     ProxyState.lists = lists
+    // @ts-ignore
+    Swal.fire(
+      'New List Added!',
+      ' ',
+      'success'
+    )
   }
   delete(id) {
     ProxyState.lists = ProxyState.lists.filter(l => l.id != id)
 
-    console.log(ProxyState.lists)
+    // @ts-ignore
+    Swal.fire(
+      'Deleted!',
+      ' ',
+      'error'
+    )
   }
 
 }
