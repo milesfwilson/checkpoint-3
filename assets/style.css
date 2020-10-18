@@ -1,3 +1,17 @@
 .radius-25 {
   border-radius: 25px;
 }
+
+p {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+
+.strikeThrough {
+  text-decoration: line-through;
+}
+
+.grow:hover {
+  transform: scale(1.01);
+  transition: all .25s ease-in-out;
+  }

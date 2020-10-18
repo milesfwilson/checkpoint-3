@@ -51,27 +51,29 @@ class ListService {
   }
 
   titleColor(id) {
-    let title = document.getElementById(id)
+    let lists = ProxyState.lists
+    let index = lists.findIndex(l => l.id == id)
 
-    if (title.classList.contains('bg-primary')) {
-      title.classList.remove('bg-primary')
-      title.classList.add('bg-secondary')
-    } else if (title.classList.contains('bg-dark')) {
-      title.classList.remove('bg-dark')
-      title.classList.add('bg-primary')
-    } else if (title.classList.contains('bg-secondary')) {
-      title.classList.remove('bg-secondary')
-      title.classList.add('bg-warning')
-    } else if (title.classList.contains('bg-warning')) {
-      title.classList.remove('bg-warning')
-      title.classList.add('bg-danger')
+    if (lists[index]['color'] == 'bg-primary') {
 
-    } else if (title.classList.contains('bg-danger')) {
-      title.classList.remove('bg-danger')
-      title.classList.add('bg-dark')
+      lists[index]['color'] = 'bg-secondary'
+    } else if (lists[index]['color'] == 'bg-dark') {
+
+      lists[index]['color'] = 'bg-primary'
+    } else if (lists[index]['color'] == 'bg-secondary') {
+
+      lists[index]['color'] = 'bg-warning'
+    } else if (lists[index]['color'] == 'bg-warning') {
+
+      lists[index]['color'] = 'bg-danger'
+
+    } else if (lists[index]['color'] == 'bg-danger') {
+
+      lists[index]['color'] = 'bg-dark'
 
     }
 
+    ProxyState.lists = lists
 
 
   }

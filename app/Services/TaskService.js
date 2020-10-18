@@ -30,14 +30,19 @@ class TaskService {
   }
 
   crossOff(id) {
-    let taskItem = document.getElementById(id)
-    if (taskItem.style.textDecoration == 'line-through') {
-      taskItem.style.textDecoration = 'none'
-    } else {
-      taskItem.style.textDecoration = 'line-through'
-    }
-  }
+    let tasks = ProxyState.tasks
+    let index = tasks.findIndex(t => t.id == id)
 
+    if (tasks[index]['text'] == 'text-dark') {
+
+      tasks[index]['text'] = 'strikeThrough'
+    } else if (tasks[index]['text'] == 'strikeThrough') {
+      tasks[index]['text'] = 'text-dark'
+
+    }
+
+    ProxyState.tasks = tasks
+  }
 }
 
 export const taskService = new TaskService()
